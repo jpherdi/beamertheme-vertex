@@ -43,9 +43,9 @@
   \if@customcolor\else\colorlet{mainColor}{vertexLightRed}\fi
 \else
   \setbeamercolor{normal text}{fg=vertexDarkGrey}
-  \setbeamercolor{math text}{parent=normal text}
   \setbeamercolor{structure}{fg=vertexDarkGrey}
   \setbeamercolor{palette1}{fg=white, bg=vertexDarkGrey}
+  \setbeamercolor{palette_logo}{fg=white, bg=white}
   \setbeamercolor{palette2}{fg=vertexDarkGrey,bg=vertexLightGrey}
   \if@customcolor\else\colorlet{mainColor}{vertexDarkRed}\fi
 \fi
@@ -56,6 +56,7 @@
 \setbeamercolor{subtitle}{parent=normal text}
 \setbeamercolor{institute}{parent=normal text}
 \setbeamercolor{headline}{parent=palette1}
+\setbeamercolor{logo}{parent=palette_logo}
 \setbeamercolor{footline}{parent=palette2}
 \setbeamercolor{block title}{parent=palette1}
 \setbeamercolor{block body}{parent=palette2}
@@ -69,7 +70,6 @@
 % Fonts
 \usefonttheme{professionalfonts}
 \usepackage{fontspec}%
-\usepackage[mathrm=sym]{unicode-math}
 \newfontfamily\Light{Fira Sans Light}%
 \newfontfamily\Regular{Fira Sans}%
 \newfontfamily\Bold{Fira Sans Medium}%
@@ -78,21 +78,19 @@
   BoldItalicFont=Fira Sans Medium Italic,
   ItalicFont=Fira Sans Light Italic
 ]{Fira Sans Light}
-\IfFontExistsTF{Fira Code}{
-  \setmonofont[Contextuals=Alternate]{Fira Code}%
-}{
-  \setmonofont{Fira Mono}%
-}
-\IfFontExistsTF{Fira Math}{
-  \setmathfont{Fira Math}
-}{
-  \setmathfont{Latin Modern Math}
-}
-\setbeamerfont{title}{family=\Light,size=\fontsize{30}{30}}
-\setbeamerfont{subtitle}{family=\Light,size=\fontsize{18}{20}}
+\setmonofont[Contextuals=Alternate,Scale=0.8]{Fira Code}%
+% \setmathfont{FiraMath-Light}
+
+% \setmainfont{Libertinus Serif}
+% \setsansfont{Libertinus Sans}
+% \setmonofont{Libertinus Mono}
+\setmathfont{Latin Modern Math}
+
+\setbeamerfont{title}{family=\Light,size=\fontsize{18}{20}}
+\setbeamerfont{subtitle}{family=\Light,size=\fontsize{16}{18}}
 \setbeamerfont{date}{size=\fontsize{10}{12}}
-\setbeamerfont{author}{size=\fontsize{16}{18}}
-\setbeamerfont{institute}{size=\fontsize{14}{16}}
+\setbeamerfont{author}{size=\fontsize{12}{14}}
+\setbeamerfont{institute}{size=\fontsize{12}{14}}
 \setbeamerfont{section title}{size=\LARGE}
 \setbeamerfont{headline}{family=\Regular,size=\LARGE}
 \setbeamerfont{footline}{family=\Regular,size=\footnotesize}
@@ -137,7 +135,7 @@
     \fi%
     \ifx\insertinstitute\@empty%
     \else%
-      \vspace*{5mm}%
+      \vspace*{3mm}%
       {\usebeamerfont{institute}\insertinstitute\par}%
     \fi%
     \vfill
@@ -151,7 +149,7 @@
 
 \setbeamersize{
   text margin left=10pt,
-  text margin right=10pt,
+  text margin right=15pt,
 }
 
 \define@key{beamerframe}{t}[true]{% top
@@ -176,16 +174,19 @@
 \setbeamertemplate{headline}{%
   \nointerlineskip%
   \usebeamerfont{headline}%
-  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,rightskip=1em,ht=2.5ex,dp=1ex]{headline}
-    {%
-      \setbeamercolor{math text}{parent=headline}%
-      \insertframetitle%
-      \ifx\insertframesubtitle\@empty%
-      \else%
-        {~–~}\insertframesubtitle%
-      \fi%
-    }%
-  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=1\paperwidth, ht=2.5ex,dp=1ex]{headline}
+    \begin{beamercolorbox}[wd=\paperwidth, leftskip=1em,ht=2.5ex,dp=1ex]{headline}
+      {%
+        \setbeamercolor{math text}{parent=headline}%
+        \insertframetitle%
+        \ifx\insertframesubtitle\@empty%
+        \else%
+          {~–~}\insertframesubtitle%
+        \fi%
+        
+      }%
+    \end{beamercolorbox}%
+\end{beamercolorbox}
 }
 
 % get rid of normal frametitle
@@ -206,17 +207,13 @@
   \usebeamerfont{footline}%
   \begin{beamercolorbox}[wd=1\paperwidth, ht=2.5ex, dp=1ex]{footline}
     \begin{beamercolorbox}[wd=0.25\paperwidth, ht=2.5ex, dp=1ex, left, leftskip=1em]{author in head/foot}%
-      \strut\insertshortauthor%
-      \ifx\beamer@shortinstitute\@empty\else~–~\insertshortinstitute\fi%
+      % \strut\insertshortauthor%
+      % \ifx\beamer@shortinstitute\@empty\else~–~\insertshortinstitute\fi%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=0.5\paperwidth, ht=2.5ex, dp=1ex, center]{section in head/foot}%
-      \strut\insertshorttitle%
+      \strut\insertsectionhead%
       \ifx\insertsubsectionhead\@empty%
-        \ifx\insertsectionhead\@empty%
         \else%
-          {~–~}\insertsectionhead%
-        \fi%
-      \else%
         {~–~}\insertsubsectionhead%
       \fi%
     \end{beamercolorbox}%

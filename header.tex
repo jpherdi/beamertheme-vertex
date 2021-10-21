@@ -1,0 +1,119 @@
+\documentclass[compress,aspectratio=1610]{beamer}
+
+% multi language typesetting package
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+% quoting, \enquote etc...
+\usepackage{csquotes}    
+
+% labels and references, bookmark adds functionality
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+% Package hyperref, float, listings improvements
+\usepackage{scrhack}
+
+% math-commands
+\usepackage{amsmath}
+% math-symbols
+\usepackage{amssymb}
+% additional math-commands
+\usepackage{mathtools}
+
+% unicode math
+\usepackage[
+  mathrm=sym,
+  math-style=ISO,    % ┐
+  bold-style=ISO,    % │
+  sans-style=italic, % │ ISO-standard 
+  nabla=upright,     % │
+  partial=upright,   % ┘
+  warnings-off={           % ┐
+    mathtools-colon,       % │ switch off unnecessary warning
+    mathtools-overbracket, % │
+  },                       % ┘
+]{unicode-math}
+
+% Zahlen und Einheiten
+\usepackage[
+  locale=UK,                   % english settings
+  separate-uncertainty=true,   % errors always with \pm
+  per-mode=symbol-or-fraction, % / in inline math, fraction in display math
+]{siunitx}
+
+% nice fractions inline
+\usepackage{xfrac}
+
+% Dirac notation brackets
+\usepackage{braket}
+
+% better captions
+\usepackage[
+  labelfont=bf,        % Table x: Figure y: bold
+  font=small,          % font little smaller than in document
+  width=0.7\textwidth, % smaller width of caption
+]{caption}
+
+% subfigure, subtable, subref
+\usepackage{subcaption}
+
+% graphics can be used
+\usepackage{graphicx}
+
+% better tables
+\usepackage{booktabs}
+
+% improvement on typesetting
+\usepackage{microtype}
+
+% For extended footnote functionality
+% \usepackage{footmisc}
+
+% For citations
+\usepackage[
+  % style=numeric,
+  % style=authoryear-ibid,
+  % style=verbose,
+  doi=false,
+  style=phys,
+  % sorting=none,
+  backend=biber,
+  autolang=hyphen,
+  articletitle=false,
+  chaptertitle=false,
+  biblabel=brackets,
+  eprint=false,
+  pageranges=false,
+  url=false,
+  % useauthor=false,
+]{biblatex}
+\addbibresource{lit.bib}
+
+% draw with code
+\usepackage{tikz}
+
+% moveability with absolute text positions, great for beamer
+\usepackage[overlay]{textpos}
+
+% additional functionality of \includegraphics
+\usepackage[export]{adjustbox}
+
+% wrapfigures more for text
+\usepackage{wrapfig}
+
+% Trennung von Wörtern mit Strichen
+\usepackage[shortcuts]{extdash}
+
+% multicolumns
+\usepackage{multicol}
+
+\linespread{1.1}
+
+% \makeatletter
+% % Default:
+% % \def\@makefnmark{\hbox{\@textsuperscript{\normalfont\@thefnmark}}}
+% \renewcommand{\@makefnmark}{\makebox{\normalfont[\@thefnmark]}}
+% \makeatother
+
+\usetheme{vertex}
