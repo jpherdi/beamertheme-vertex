@@ -1,4 +1,3 @@
-\documentclass[compress,aspectratio=1610]{beamer}
 
 % multi language typesetting package
 \usepackage{polyglossia}
@@ -110,10 +109,10 @@
 
 \linespread{1.1}
 
-% \makeatletter
+\makeatletter
 % % Default:
-% % \def\@makefnmark{\hbox{\@textsuperscript{\normalfont\@thefnmark}}}
-% \renewcommand{\@makefnmark}{\makebox{\normalfont[\@thefnmark]}}
-% \makeatother
+% \def\@makefnmark{\hbox{\@textsuperscript{\normalfont\@thefnmark}}}
+\renewcommand{\@makefnmark}{\makebox{\normalfont[\@thefnmark]}}
+\makeatother
 
 \usetheme{vertex}
