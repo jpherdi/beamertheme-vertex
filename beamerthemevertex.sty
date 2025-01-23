@@ -28,27 +28,19 @@
 \setlength{\parskip}{0.5em}
 
 % Colors
-\definecolor{vertexDarkGrey}{rgb}{0.3019607844,0.2803921571,0.258823530}
-\definecolor{vertexLightGrey}{rgb}{0.833333333,0.8117647064,0.790196078}
-\colorlet{vertexDarkRed}{red!70!black}
+\definecolor{vertexDarkGrey}{rgb}{0.0, 0.0, 0.0} 
+\definecolor{softGreen}{rgb}{0.68, 0.77, 0.67}
+
+\definecolor{vertexDarkRed}{rgb}{0.75, 0.48, 0.47}
 \colorlet{vertexLightRed}{vertexDarkRed!70!white}
 
 
-\if@dark%
-  \setbeamercolor{normal text}{fg=vertexLightGrey}
-  \setbeamercolor{background canvas}{bg=vertexDarkGrey}
-  \setbeamercolor{structure}{fg=vertexLightGrey}
-  \setbeamercolor{palette1}{fg=vertexDarkGrey,bg=vertexLightGrey}
-  \setbeamercolor{palette2}{fg=vertexLightGrey, bg=vertexDarkGrey}
-  \if@customcolor\else\colorlet{mainColor}{vertexLightRed}\fi
-\else
-  \setbeamercolor{normal text}{fg=vertexDarkGrey}
-  \setbeamercolor{structure}{fg=vertexDarkGrey}
-  \setbeamercolor{palette1}{fg=white, bg=vertexDarkGrey}
-  \setbeamercolor{palette_logo}{fg=white, bg=white}
-  \setbeamercolor{palette2}{fg=vertexDarkGrey,bg=vertexLightGrey}
-  \if@customcolor\else\colorlet{mainColor}{vertexDarkRed}\fi
-\fi
+\setbeamercolor{normal text}{fg=vertexDarkGrey}
+\setbeamercolor{structure}{fg=vertexDarkGrey}
+\setbeamercolor{palette1}{fg=vertexDarkGrey, bg=softGreen}
+\setbeamercolor{palette_logo}{fg=white, bg=white}
+\setbeamercolor{palette2}{fg=vertexDarkGrey,bg=softGreen}
+\if@customcolor\else\colorlet{mainColor}{vertexDarkRed}\fi
 
 \setbeamercolor{math text}{parent=normal text}
 \setbeamercolor{title page}{parent=palette2}
@@ -78,12 +70,7 @@
   BoldItalicFont=Fira Sans Medium Italic,
   ItalicFont=Fira Sans Light Italic
 ]{Fira Sans Light}
-% \setmonofont[Contextuals=Alternate,Scale=0.8]{Fira Code}%
-% \setmathfont{FiraMath-Light}
 
-% \setmainfont{Libertinus Serif}
-% \setsansfont{Libertinus Sans}
-% \setmonofont{Libertinus Mono}
 \setmathfont{Latin Modern Math}
 
 \setbeamerfont{title}{family=\Light,size=\fontsize{18}{20}}
@@ -92,7 +79,7 @@
 \setbeamerfont{author}{size=\fontsize{12}{14}}
 \setbeamerfont{institute}{size=\fontsize{12}{14}}
 \setbeamerfont{section title}{size=\LARGE}
-\setbeamerfont{headline}{family=\Regular,size=\LARGE}
+\setbeamerfont{headline}{family=\Light,size=\LARGE}
 \setbeamerfont{footline}{family=\Regular,size=\footnotesize}
 \setbeamerfont{block title}{family=\Regular,size=\large}
 \setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
